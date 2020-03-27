@@ -24,6 +24,7 @@ export class QueryParamControlDirective implements OnInit, OnDestroy {
   private isReactiveControl = false;
   private isCheckbox = false;
   private destroy: Subject<void> | undefined;
+  private readonly noRoutingSetup: boolean;
 
   @HostListener('input') inputValueChange() {
     if (!this.isReactiveControl) {
@@ -38,12 +39,19 @@ export class QueryParamControlDirective implements OnInit, OnDestroy {
   }
 
   constructor(
-    private readonly router: Router,
-    private readonly route: ActivatedRoute,
     private readonly elRef: ElementRef,
     private readonly renderer: Renderer2,
+    @Optional() private readonly router: Router,
+    @Optional() private readonly route: ActivatedRoute,
     @Optional() private reactiveControl: NgControl
-  ) {}
+  ) {
+    this.noRoutingSetup = !this.router || !this.route;
+    if (this.noRoutingSetup) {
+      throw new Error(
+        `No routing setup could be found for the application. You will need to setup & define the RouterModule in your application to make use of the \`queryParamControl\` directive.`
+      );
+    }
+  }
 
   ngOnInit() {
     if (!this.paramKey) {

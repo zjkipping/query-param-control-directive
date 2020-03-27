@@ -1,24 +1,55 @@
-# QueryParamControl
+# Query Param Control Directive
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
+## Description
 
-## Code scaffolding
+`queryParamControl` is an Angular directive that allows for the automatic setting of the router system queryParams from HTML form elements or from Reactive Form Controls.
 
-Run `ng generate component component-name --project query-param-control` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project query-param-control`.
-> Note: Don't forget to add `--project query-param-control` or else it will be added to the default project in your `angular.json` file. 
+## Setup
 
-## Build
+`npm install query-param-control`
 
-Run `ng build query-param-control` to build the project. The build artifacts will be stored in the `dist/` directory.
+or
 
-## Publishing
+`yarn add query-param-control`
 
-After building your library with `ng build query-param-control`, go to the dist folder `cd dist/query-param-control` and run `npm publish`.
+## How to use
 
-## Running unit tests
+[Example Code Project](https://github.com/zjkipping/query-params-control-directive/tree/master/projects/demo)
 
-Run `ng test query-param-control` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Import `QueryParamControlModule` into your application
 
-## Further help
+```typescript
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+@NgModule({
+  declarations: [...],
+  imports: [
+    ...,
+    QueryParamControlModule
+  ],
+  bootstrap: [...]
+})
+export class AppModule {}
+
+```
+
+This directive relies on the RouterModule being setup & used inside your application. This will not work if you don't have routing setup.
+
+Add the `queryParamsControl` directive to the element you want bound to your queryParams
+
+Pass in the `paramKey` input value. This is a required input on the directive. This will be the key for the input's value in the URL.
+
+HTML Form Element Example:
+
+```html
+<input queryParamsControl paramKey="filter" />
+```
+
+Reactive Form Control Example:
+
+```html
+<input [formControl]="fooControl" queryParamsControl paramKey="filter" />
+```
+
+## Current Limitations | TODO
+
+Currently the directive doesn't work great with checkbox groups that have more than 1 initially default checked input.
