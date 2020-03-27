@@ -1,0 +1,10 @@
+input:not([type="checkbox"]),
+select,
+.checkbox {
+  display: block;
+  margin: 10px;
+}
+
+section {
+  padding: 0px 10px;
+}

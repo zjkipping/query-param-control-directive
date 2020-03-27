@@ -1,0 +1,68 @@
+<section>
+  <h1>Raw HTML Form Elements</h1>
+  <input
+    queryParamControl
+    [paramKey]="'filter'"
+    type="text"
+    placeholder="Enter a text filter"
+  />
+
+  <input
+    queryParamControl
+    [paramKey]="'num'"
+    type="number"
+    placeholder="Pick a number!"
+  />
+
+  <select queryParamControl [paramKey]="'select'">
+    <option value="option_1">
+      Option 1
+    </option>
+    <option value="option_2">
+      Option 2
+    </option>
+  </select>
+
+  <section>
+    <span>Pick some colors:</span>
+    <div class="checkbox">
+      <label for="colorsRed">Red</label>
+      <input
+        id="colorsRed"
+        name="colorsRed"
+        type="checkbox"
+        value="red"
+        queryParamControl
+        [paramKey]="'colors'"
+      />
+    </div>
+    <div class="checkbox">
+      <label for="colorsBlue">Blue</label>
+      <input
+        id="colorsBlue"
+        name="colorsBlue"
+        type="checkbox"
+        value="blue"
+        queryParamControl
+        [paramKey]="'colors'"
+        checked
+      />
+    </div>
+    <div class="checkbox">
+      <label for="colorsgreen">Green</label>
+      <input
+        id="colorsGreen"
+        name="colorsGreen"
+        type="checkbox"
+        value="green"
+        queryParamControl
+        [paramKey]="'colors'"
+      />
+    </div>
+  </section>
+</section>
+
+<section>
+  <h1>Reactive Form Elements</h1>
+  <input [formControl]="nameControl" queryParamControl [paramKey]="'name'" />
+</section>
