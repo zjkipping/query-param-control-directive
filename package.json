@@ -8,7 +8,7 @@
     "test": "ng test ",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "publish": "cd dist/query-param-control && npm publish"
+    "publish": "npm run build && cd dist/query-param-control && npm publish"
   },
   "private": true,
   "dependencies": {
