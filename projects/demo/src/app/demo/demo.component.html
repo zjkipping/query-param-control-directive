@@ -2,19 +2,19 @@
   <h1>Raw HTML Form Elements</h1>
   <input
     queryParamControl
-    paramKey="'filter'"
+    paramKey="filter"
     type="text"
     placeholder="Enter a text filter"
   />
 
   <input
     queryParamControl
-    paramKey="'num'"
+    paramKey="num"
     type="number"
     placeholder="Pick a number!"
   />
 
-  <select queryParamControl paramKey="'select'">
+  <select queryParamControl paramKey="select">
     <option value="option_1">
       Option 1
     </option>
@@ -33,7 +33,7 @@
         type="checkbox"
         value="red"
         queryParamControl
-        paramKey="'colors'"
+        paramKey="colors"
       />
     </div>
     <div class="checkbox">
@@ -44,7 +44,7 @@
         type="checkbox"
         value="blue"
         queryParamControl
-        paramKey="'colors'"
+        paramKey="colors"
         checked
       />
     </div>
@@ -56,7 +56,7 @@
         type="checkbox"
         value="green"
         queryParamControl
-        paramKey="'colors'"
+        paramKey="colors"
       />
     </div>
   </section>
@@ -64,5 +64,5 @@
 
 <section>
   <h1>Reactive Form Elements</h1>
-  <input [formControl]="nameControl" queryParamControl paramKey="'name'" />
+  <input [formControl]="nameControl" queryParamControl paramKey="name" />
 </section>

@@ -14,7 +14,7 @@ or
 
 ## How to use
 
-[Example Code Project](https://github.com/zjkipping/query-params-control-directive/tree/master/projects/demo)
+[Example Code Project](https://github.com/zjkipping/query-param-control-directive/tree/master/projects/demo)
 
 Import `QueryParamControlModule` into your application
 
@@ -49,6 +49,9 @@ Reactive Form Control Example:
 ```html
 <input [formControl]="fooControl" queryParamsControl paramKey="filter" />
 ```
+
+You can overrite the value for the `mergeParam` input which defaults to `true`. This means the element's param will merge with other Query Params.
+If you set this to `false` it will wipe out all the other Query Params it is set.
 
 ## Current Limitations | TODO
 

@@ -60,6 +60,7 @@ export class QueryParamControlDirective implements OnInit, OnDestroy {
       );
     }
 
+    this.isReactiveControl = !!this.reactiveControl;
     this.isCheckbox = this.elRef.nativeElement.type === 'checkbox';
 
     const initalQueryParamValue = this.route.snapshot.queryParamMap.get(
@@ -79,7 +80,9 @@ export class QueryParamControlDirective implements OnInit, OnDestroy {
         this.renderer.setProperty(this.elRef.nativeElement, 'value', value);
       }
     } else {
-      if (this.isCheckbox) {
+      if (this.isReactiveControl) {
+        this.setQueryParam(this.reactiveControl.control.value);
+      } else if (this.isCheckbox) {
         const val = this.getCheckBoxesValueForParams();
         // How to sync with other checkboxes? This works if only a single checkbox for a particular param is initially checked, but not more
         if (!!val) {
@@ -90,8 +93,7 @@ export class QueryParamControlDirective implements OnInit, OnDestroy {
       }
     }
 
-    if (!!this.reactiveControl) {
-      this.isReactiveControl = true;
+    if (this.isReactiveControl) {
       this.destroy = new Subject();
       this.reactiveControl.control.valueChanges
         .pipe(takeUntil(this.destroy))
