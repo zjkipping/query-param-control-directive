@@ -1,10 +1,31 @@
 {
   "name": "query-param-control",
-  "version": "0.0.5",
+  "version": "0.0.6",
+  "license": "MIT",
+  "keywords": [
+    "Angular",
+    "Query Params",
+    "Form Control",
+    "Reactive Forms"
+  ],
+  "homepage": "https://github.com/zjkipping/query-param-control-directive/tree/master/projects/query-param-control",
+  "description": "An Angular directive that allows for updating the query parameters automatically on html form elements or reactive form controls.",
+  "author": {
+    "name": "Zachary Kipping",
+    "email": "zjkipping@hotmail.com",
+    "url": "https://github.com/zjkipping"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zjkipping/query-param-control-directive/tree/master/projects/query-param-control"
+  },
+  "bugs": {
+    "url": "https://github.com/zjkipping/query-param-control-directive/issues",
+    "email": "zjkipping@hotmail.com"
+  },
   "peerDependencies": {
     "@angular/common": "^9.1.0",
     "@angular/core": "^9.1.0",
     "tslib": "^1.10.0"
-  },
-  "homepage": "https://github.com/zjkipping/query-param-control-directive/tree/master/projects/query-param-control"
+  }
 }

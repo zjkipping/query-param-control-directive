@@ -43,7 +43,7 @@ Pass in the `paramKey` input value. This is a required input on the directive. T
 You can override the value for the `mergeParam` input which defaults to `true`. This means the element's param will merge with other Query Params.
 If you set this to `false` it will wipe out all the other Query Params it is set.
 
-For Checkbox Groups you will need to put the `queryParamsControl` & `paramKey` input onto an element that contains the checkbox inputs.
+For Checkbox Groups you will need to put the `queryParamsControl` & `paramKey` inputs onto an element that contains the checkbox inputs.
 You will also need to set the `checkboxGroup` input to `true`.
 The checkbox inputs will need to have a `queryParamCheckbox` directive attached to them.
 The checkbox specific directive may go away when this Angular functionality is finished: https://github.com/angular/angular/issues/8563
