@@ -1,0 +1,8 @@
+<label for="select">
+  {{ label }}
+</label>
+<select id="select" [formControl]="control">
+  <option *ngFor="let option of options" [value]="option.value">{{
+    option.display
+  }}</option>
+</select>

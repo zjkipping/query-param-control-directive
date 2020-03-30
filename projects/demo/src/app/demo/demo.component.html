@@ -1,68 +1,92 @@
 <section>
   <h1>Raw HTML Form Elements</h1>
-  <input
-    queryParamControl
-    paramKey="filter"
-    type="text"
-    placeholder="Enter a text filter"
-  />
-
-  <input
-    queryParamControl
-    paramKey="num"
-    type="number"
-    placeholder="Pick a number!"
-  />
-
-  <select queryParamControl paramKey="select">
-    <option value="option_1">
-      Option 1
-    </option>
-    <option value="option_2">
-      Option 2
-    </option>
-  </select>
 
   <section>
+    <h2>Text Input</h2>
+    <input
+      queryParamControl
+      paramKey="filter"
+      type="text"
+      placeholder="Enter a text filter"
+    />
+  </section>
+
+  <section>
+    <h2>Number Input</h2>
+    <input
+      queryParamControl
+      paramKey="num"
+      type="number"
+      placeholder="Pick a number!"
+    />
+  </section>
+
+  <section>
+    <h2>Select</h2>
+    <select queryParamControl paramKey="select">
+      <option value="option_1">
+        Option 1
+      </option>
+      <option value="option_2">
+        Option 2
+      </option>
+    </select>
+  </section>
+
+  <section>
+    <h2>Single checkbox with no grouping</h2>
+    <div class="checkbox">
+      <label for="toggle">Toggle</label>
+      <input id="toggle" type="checkbox" queryParamControl paramKey="toggle" />
+    </div>
+  </section>
+
+  <section>
+    <h2>Checkbox group</h2>
     <span>Pick some colors:</span>
-    <div class="checkbox">
-      <label for="colorsRed">Red</label>
-      <input
-        id="colorsRed"
-        name="colorsRed"
-        type="checkbox"
-        value="red"
-        queryParamControl
-        paramKey="colors"
-      />
-    </div>
-    <div class="checkbox">
-      <label for="colorsBlue">Blue</label>
-      <input
-        id="colorsBlue"
-        name="colorsBlue"
-        type="checkbox"
-        value="blue"
-        queryParamControl
-        paramKey="colors"
-        checked
-      />
-    </div>
-    <div class="checkbox">
-      <label for="colorsgreen">Green</label>
-      <input
-        id="colorsGreen"
-        name="colorsGreen"
-        type="checkbox"
-        value="green"
-        queryParamControl
-        paramKey="colors"
-      />
-    </div>
+    <ng-container queryParamControl paramKey="colors" [checkboxGroup]="true">
+      <div class="checkbox">
+        <label for="colorsRed">Red</label>
+        <input
+          queryParamCheckbox
+          id="colorsRed"
+          name="colorsRed"
+          type="checkbox"
+          value="red"
+        />
+      </div>
+      <div class="checkbox">
+        <label for="colorsBlue">Blue</label>
+        <input
+          queryParamCheckbox
+          id="colorsBlue"
+          name="colorsBlue"
+          type="checkbox"
+          value="blue"
+          checked
+        />
+      </div>
+      <div class="checkbox">
+        <label for="colorsgreen">Green</label>
+        <input
+          queryParamCheckbox
+          id="colorsGreen"
+          name="colorsGreen"
+          type="checkbox"
+          value="green"
+        />
+      </div>
+    </ng-container>
   </section>
 </section>
 
 <section>
   <h1>Reactive Form Elements</h1>
-  <input [formControl]="nameControl" queryParamControl paramKey="name" />
+  <app-custom-select-element
+    label="Favorite Foods"
+    [options]="foods"
+    [formControl]="foodsControl"
+    queryParamControl
+    paramKey="food"
+  ></app-custom-select-element>
 </section>

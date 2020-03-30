@@ -1,9 +1,15 @@
 import { NgModule } from '@angular/core';
 
-import { QueryParamControlDirective } from './query-param-control.directive';
+import {
+  CheckboxQueryParamControlDirective,
+  QueryParamControlDirective
+} from './query-param-control.directive';
 
 @NgModule({
-  declarations: [QueryParamControlDirective],
-  exports: [QueryParamControlDirective]
+  declarations: [
+    QueryParamControlDirective,
+    CheckboxQueryParamControlDirective
+  ],
+  exports: [QueryParamControlDirective, CheckboxQueryParamControlDirective]
 })
 export class QueryParamControlModule {}
